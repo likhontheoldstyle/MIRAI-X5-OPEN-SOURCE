@@ -1,7 +1,7 @@
 <div align="center">
   <h1>🤖 SAGOR BOT</h1>
   <p><b>A powerful Facebook Messenger Bot — AI chat, media downloader, group management, and a built-in Web Dashboard.</b></p>
-  <img src="https://ibb.co.com/dJMWVWNp" alt="SAGOR BOT" width="400"/>
+  <img src="https://imgur.com/a/pNja7Ia.jpg" alt="SAGOR BOT" width="400"/>
 </div>
 
 ---
