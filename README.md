@@ -67,10 +67,10 @@ jobs:
 
 ---
 
-## 📜 LICENSE
+## LICENSE 🪧
 
-GPL-3.0 — © **SAGOR**
+GPL-3.0 — © **LIKHON AHMED**
 
 <div align="center">
-  <sub>Built with 🩶 by SAGOR</sub>
+  <sub> MODIFIED V2 BY UNKNOWN </sub>
 </div>
