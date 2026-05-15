@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> S1NHA PR0J3T </h1>
+  <h1> B0T PR0J3T ✨ </h1>
   <p><b>A powerful Facebook Messenger Bot — AI chat, media downloader, group management, and a built-in Web Dashboard.</b></p>
   <img src="https://files.catbox.moe/yywvtl.jpg" alt="SAGOR BOT" width="400"/>
 </div>
