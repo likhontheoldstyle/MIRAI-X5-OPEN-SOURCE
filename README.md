@@ -1,6 +1,6 @@
 <div align="center">
   <h1> B0T PR0J3T ✨ </h1>
-  <p><b>A powerful Facebook Messenger Bot — AI chat, media downloader, group management, and a built-in Web Dashboard.</b></p>
+  <p><b> THE BOT PROJECT FULLY MODIFIED BY UNKNOWN 🔺 </b></p>
   <img src="https://files.catbox.moe/yywvtl.jpg" alt="SAGOR BOT" width="400"/>
 </div>
 
