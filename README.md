@@ -136,17 +136,6 @@ jobs:
 
 ---
 
-## 🐛 TROUBLESHOOTING
-
-| Issue | Fix |
-|-------|------|
-| Bot won't start, exit code `78` | All cookies expired — update `cookie.txt` |
-| Dashboard not visible in webview | Set `config.json → dashBoard.port` to `5000` |
-| Welcome message not sending | Set `groupNoti.enable: true` |
-| Some commands fail (hack/uid/uptime) | Requires `libuuid` system dependency |
-
----
-
 ## 🔗 SOCIAL
 
 <p align="center">
