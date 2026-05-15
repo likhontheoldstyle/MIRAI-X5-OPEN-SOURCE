@@ -17,29 +17,6 @@
 
 ---
 
-## ✨ FEATURES
-
-- 🤖 **AI Chat** — Smart replies powered by OpenAI integration
-- 🎬 **Video / Media Downloader** — TikTok, YouTube, Facebook, and more
-- 🛡️ **Group Management** — Anti-out, Anti-name change, Welcome/Leave, Kick/Ban
-- 🎨 **Stylish Image Cards** — Welcome cards, profile, rank built with Canvas + Jimp
-- 🌍 **Multi-language** — English (default), and more
-- 📊 **Web Dashboard** — Start/Stop/Restart bot, live stats, logs (port 5000)
-- 🔁 **Auto-recovery** — Child process auto-restart with exponential backoff on crash
-- 🍪 **Multi-cookie support** — Rotation across `cookie.txt`, `cookie2.txt`, `cookie3.txt`
-- 💾 **SQLite Database** — Sequelize ORM, zero-config persistence
-
----
-
-## 🚀 GETTING STARTED
-
-### On Replit
-1. Import this repo into Replit
-2. Paste your Facebook appstate (cookie JSON) into `cookie.txt`
-3. Add your Facebook UID to `ADMINBOT` and `NDH` arrays in `config.json`
-4. Hit **Run** (workflow: `node index.js`)
-5. Open the dashboard in the webview on port `5000`
-
 ### Local
 ```bash
 npm install
