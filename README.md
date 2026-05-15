@@ -69,7 +69,7 @@ jobs:
 
 ## LICENSE 🪧
 
-GPL-3.0 — © **LIKHON AHMED**
+GPL-3.0 — © **LIKHON AHMED 💠**
 
 <div align="center">
   <sub> MODIFIED V2 BY UNKNOWN </sub>
