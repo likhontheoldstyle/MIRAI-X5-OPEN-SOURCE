@@ -2,7 +2,7 @@ const crypto = require("crypto");
 const path = require("path");
 const fs = require("fs");
 
-const _h = "87bd027c6484363ee80c074373ffd7b5e47ff4e71b5ee1e5bba6a913155cb176";
+const _h = "3688351c973121afdd272acc7c68c55d797ca68a0bf6007d34b84c2641f74940";
 
 function _fail(reason) {
     const line = "═".repeat(60);
