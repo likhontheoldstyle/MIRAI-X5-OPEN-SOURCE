@@ -6,7 +6,7 @@
 
 ---
 
-## STATS 📍
+## STATUS 📍
 
 <p align="center">
 <img src="https://img.shields.io/badge/Commands-92-00d9ff?style=for-the-badge" />
