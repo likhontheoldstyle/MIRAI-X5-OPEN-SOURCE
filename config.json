@@ -5,25 +5,25 @@
     "language": "en",
     "DeveloperMode": false,
     "autoCreateDB": true,
-    "BOTNAME": "—𝐒𝐀𝐆𝐎𝐑-:)🩶🌷",
+    "BOTNAME": "⟦  𝐒 𝐈 𝐍 𝐇 𝐀  ⸙  𝐁 𝐎 𝐓  浴  ⟧",
     "EMAIL": "",
     "PASSWORD": "",
     "OTPKEY": "",
     "PREFIX": ".",
     "ADMINBOT": [
-        "61581197276223",
-        "61576500657447"
+        "61572915213085",
+        ""
     ],
     "SUPERADMIN": [
-        "61581197276223",
-        "61576500657447"
+        "61572915213085",
+        ""
     ],
     "PREMIUM": [],
     "DEV": [
-        "61581197276223"
+        "61572915213085"
     ],
     "VIP": [
-        "61581197276223"
+        "61572915213085"
     ],
     "adminOnly": false,
     "superadminOnly": false,
@@ -66,7 +66,7 @@
     "whiteListMode": {
         "enable": false,
         "whiteListIds": [
-            "61581197276223",
+            "61572915213085",
             ""
         ]
     },
