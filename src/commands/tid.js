@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "tid",	
   version: "1.0.0", 
 	hasPermssion: 0,
-	credits: "SaGor",
+	credits: "LIKHON AHMED",
 	description: "Get box id", 
 	commandCategory: "group",
 	usages: "tid",
@@ -11,5 +11,5 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event }) {
-  api.sendMessage("ID of this thread: "+event.threadID, event.threadID, event.messageID);
+  api.sendMessage(" "+event.threadID, event.threadID, event.messageID);
 };
