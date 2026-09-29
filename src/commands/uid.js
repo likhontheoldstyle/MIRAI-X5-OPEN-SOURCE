@@ -1,7 +1,10 @@
 const fs = require("fs-extra");
 const path = require("path");
 const axios = require("axios");
-const { createCanvas, loadImage, registerFont } = require("canvas");
+// canvas is a native module — it may fail to install on restricted hosting.
+// Load it lazily so the command still works (text-only) without it.
+let createCanvas = null, loadImage = null, registerFont = null;
+try { ({ createCanvas, loadImage, registerFont } = require("canvas")); } catch (_) {}
 
 module.exports.config = {
   name: "uid",
@@ -31,6 +34,12 @@ module.exports.run = async function ({ api, event, args, Users }) {
   }
 
   const processMsg = await api.sendMessage("🧸", threadID);
+
+  // Fallback: canvas unavailable on this host → text-only reply
+  if (!createCanvas || !loadImage) {
+    try { api.unsendMessage(processMsg.messageID); } catch (_) {}
+    return api.sendMessage(`🧸 UID: ${targetID}`, threadID, messageID);
+  }
 
   try {
     const userData = await Users.getData(targetID);

@@ -1,5 +1,8 @@
 const os = require("os");
-const { createCanvas } = require("canvas");
+// canvas is a native module — it may fail to install on restricted hosting.
+// Load it lazily so the command still works (text-only) without it.
+let createCanvas = null;
+try { ({ createCanvas } = require("canvas")); } catch (_) {}
 const fs = require("fs");
 const path = require("path");
 
@@ -363,7 +366,14 @@ module.exports.run = async function ({ api, event }) {
     let diskPct = 46;
     try {
       const { execSync } = require("child_process");
-      const dfOut = execSync("df / --output=pcent | tail -1").toString().trim();
+      let dfOut = "";
+      try {
+        // GNU coreutils form (most Linux hosts)
+        dfOut = execSync("df / --output=pcent 2>/dev/null | tail -1").toString().trim();
+      } catch (_) {
+        // Portable fallback (busybox / minimal images without --output)
+        dfOut = execSync("df / 2>/dev/null | tail -1 | awk '{print $5}'").toString().trim();
+      }
       diskPct = parseInt(dfOut.replace("%", "")) || 46;
     } catch (_) {}
 
@@ -414,7 +424,26 @@ module.exports.run = async function ({ api, event }) {
       timeStr,
     };
 
-    const imgBuffer = buildImage(data);
+    const imgBuffer = createCanvas
+      ? buildImage(data)
+      : null;
+
+    // Fallback: canvas unavailable on this host → text-only status
+    if (!imgBuffer) {
+      return api.sendMessage(
+        `🟢 𝗦𝗬𝗦𝗧𝗘𝗠 𝗦𝗧𝗔𝗧𝗨𝗦\n\n` +
+        `⏱ Uptime: ${uptimeStr}\n` +
+        `🧠 CPU: ${data.cpuPct}%\n` +
+        `💾 Memory: ${data.memPct}%\n` +
+        `💽 Disk: ${data.diskPct}%\n` +
+        `🖥 ${data.osArch} · ${cores} cores\n` +
+        `⬢ Node ${data.nodeVer} · PID ${process.pid}\n` +
+        `📅 ${data.dateStr} ${data.timeStr}`,
+        event.threadID,
+        event.messageID
+      );
+    }
+
     const tmpPath   = path.join(__dirname, `uptime_${Date.now()}.png`);
     fs.writeFileSync(tmpPath, imgBuffer);
 

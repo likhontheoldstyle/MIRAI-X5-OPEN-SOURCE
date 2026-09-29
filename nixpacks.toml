@@ -1,5 +1,9 @@
 [phases.setup]
-aptPkgs = ["fonts-noto", "fonts-noto-cjk", "fontconfig", "libcairo2-dev", "libpango1.0-dev"]
+aptPkgs = ["fonts-noto", "fonts-noto-cjk", "fontconfig", "libcairo2-dev", "libpango1.0-dev", "libjpeg-dev", "libgif-dev", "librsvg2-dev"]
 
 [phases.build]
 cmds = ["fc-cache -fv"]
+
+# Pin Node to the version required by package.json engines (node 20.x)
+[variables]
+NIXPACKS_NODE_VERSION = "20"

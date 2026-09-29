@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Bot secrets / session state — NEVER commit these
+cookie.txt
+cookie2.txt
+cookie3.txt
+SAGOR-FCA.json
+data.sqlite
+main/data.sqlite
+
+# Logs & env
+*.log
+.env
+.env.*
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

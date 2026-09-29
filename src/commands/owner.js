@@ -1,4 +1,7 @@
-const { createCanvas, loadImage } = require("canvas");
+// canvas is a native module — it may fail to install on restricted hosting.
+// Load it lazily so the command still works (text-only) without it.
+let createCanvas = null, loadImage = null;
+try { ({ createCanvas, loadImage } = require("canvas")); } catch (_) {}
 const fs    = require("fs");
 const path  = require("path");
 const axios = require("axios");
@@ -449,6 +452,24 @@ async function buildCard(avatarImg) {
    COMMAND ENTRY
 ════════════════════════════════════════════════ */
 module.exports.run = async function ({ api, event }) {
+  // Fallback: canvas unavailable on this host → text-only owner info
+  if (!createCanvas || !loadImage) {
+    return api.sendMessage(
+      `👑 𝐎𝐖𝐍𝐄𝐑 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍\n\n` +
+      `• Name: ${OWNER.name}\n` +
+      `• Age: ${OWNER.age}\n` +
+      `• Country: ${OWNER.country}\n` +
+      `• City: ${OWNER.city}\n` +
+      `• Facebook: ${OWNER.facebook}\n` +
+      `• Gmail: ${OWNER.gmail}\n` +
+      `• Relationship: ${OWNER.relationship}\n` +
+      `• Hobby: ${OWNER.hobby}\n` +
+      `• Profession: ${OWNER.profession}\n\n` +
+      `🤖 ${OWNER.botName} ${OWNER.botVersion}`,
+      event.threadID,
+      event.messageID
+    );
+  }
   try {
     const avatarImg = await loadAvatar(OWNER.uid);
     const buf       = await buildCard(avatarImg);

@@ -1,4 +1,7 @@
-const { loadImage, createCanvas } = require("canvas");
+// canvas is a native module — it may fail to install on restricted hosting.
+// Load it lazily so the command still works (text-only) without it.
+let loadImage = null, createCanvas = null;
+try { ({ loadImage, createCanvas } = require("canvas")); } catch (_) {}
 const fs = require("fs-extra");
 const axios = require("axios");
 
@@ -95,6 +98,16 @@ module.exports.run = async function ({ api, event, args }) {
     const name = userInfo[id]?.name || "Unknown User";
 
     const msgID = await hackMessage(api, event, name);
+
+    // Fallback: canvas unavailable on this host → text-only result
+    if (!loadImage || !createCanvas) {
+      if (msgID) { try { await api.unsendMessage(msgID); } catch (_) {} }
+      return api.sendMessage(
+        `Successfully hacked ${name}\nPlease check your inbox to get Number and Password`,
+        event.threadID,
+        event.messageID
+      );
+    }
 
     const bgURL = "https://i.ibb.co/DCLzrQQ/VQXViKI.png";
 
